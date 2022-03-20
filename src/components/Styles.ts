@@ -356,6 +356,7 @@ export const GlobalStyle = createGlobalStyle`
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		column-gap: 10px;
+		row-gap: 30px;
 
 		& > * {
 			grid-column: 1 / -1;
