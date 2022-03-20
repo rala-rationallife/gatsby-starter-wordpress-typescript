@@ -6,7 +6,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo />
-      <div>Hello, world!</div>
+      <h1>Hello, world!</h1>
     </Layout>
   )
 }

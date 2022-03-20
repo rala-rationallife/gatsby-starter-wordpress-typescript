@@ -1,6 +1,8 @@
 import type { GatsbyConfig } from "gatsby"
 import path from "path"
 
+require("dotenv").config()
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Site Name`,

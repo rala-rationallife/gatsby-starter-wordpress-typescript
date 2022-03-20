@@ -1,9 +1,21 @@
 import * as React from "react"
+import { Header } from "./Header"
+import { GlobalStyle } from "./Styles"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import { config } from "@fortawesome/fontawesome-svg-core"
+
+config.autoAddCss = false
 
 type Props = {
   children: any
 }
 
 export const Layout: React.VFC<Props> = ({ children }) => {
-  return <>{children}</>
+  return (
+    <>
+      <GlobalStyle />
+      <Header />
+      {children}
+    </>
+  )
 }
