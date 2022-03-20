@@ -1,8 +1,21 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faHome } from "@fortawesome/free-solid-svg-icons"
+
+type DataType = {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  wp: {
+    generalSettings: {
+      title: string
+    }
+  }
+}
 
 const StyledHeader = styled.header`
   padding-block: 30px;
@@ -56,11 +69,31 @@ const StyledNav = styled.nav`
 `
 
 export const Header: React.VFC = () => {
+  const data: DataType = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      wp {
+        generalSettings {
+          title
+        }
+      }
+    }
+  `)
+
+  const title =
+    data.wp.generalSettings.title ||
+    data.site.siteMetadata.title ||
+    `Site Title`
+
   return (
     <>
       <StyledHeader className="myContainer">
         <Link to={`/`} className="site">
-          title
+          {title}
         </Link>
       </StyledHeader>
       <StyledNav className="myContainer">

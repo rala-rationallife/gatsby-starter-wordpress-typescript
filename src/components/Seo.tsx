@@ -24,6 +24,13 @@ type DataType = {
       locale: string
     }
   }
+  wp: {
+    generalSettings: {
+      title: string
+      description: string
+      language: string
+    }
+  }
 }
 
 export const Seo: React.VFC<SeoProps> = props => {
@@ -38,14 +45,35 @@ export const Seo: React.VFC<SeoProps> = props => {
           locale
         }
       }
+      wp {
+        generalSettings {
+          title
+          description
+          language
+        }
+      }
     }
   `)
 
+  const lang =
+    data.wp.generalSettings.language || data.site.siteMetadata.lang || `ja`
+
+  const siteName =
+    data.wp.generalSettings.title ||
+    data.site.siteMetadata.title ||
+    `Site Title`
+
   const title = props.pagetitle
     ? `${props.pagetitle}`
-    : data.site.siteMetadata.title
+    : data.wp.generalSettings.title ||
+      data.site.siteMetadata.title ||
+      `Site Title`
 
-  const description = props.pagedesc || data.site.siteMetadata.description
+  const description = props.pagedesc
+    ? `${props.pagedesc}`
+    : data.wp.generalSettings.description ||
+      data.site.siteMetadata.description ||
+      ``
 
   const url = props.pagepath
     ? `${data.site.siteMetadata.siteUrl}${props.pagepath}`
@@ -60,7 +88,7 @@ export const Seo: React.VFC<SeoProps> = props => {
 
   const publishDate = props.publishDate
     ? `${props.publishDate}`
-    : `2021 年 02 月 08 日`
+    : `2022 年 01 月 01 日`
 
   const updateDate = props.updateDate && `${props.updateDate}`
 
@@ -81,13 +109,13 @@ export const Seo: React.VFC<SeoProps> = props => {
 
   return (
     <Helmet>
-      <html lang={data.site.siteMetadata.lang} />
+      <html lang={lang} />
       <title>{title}</title>
       <meta name="description" content={description} />
 
       <link rel="canonical" href={url} />
 
-      <meta property="og:site_name" content={data.site.siteMetadata.title} />
+      <meta property="og:site_name" content={siteName} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />

@@ -7,11 +7,17 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `Site Name`,
     description: `ここに説明が入ります`,
-    siteUrl: `https://example.com/`,
+    siteUrl: `https://example.com`,
     lang: `ja`,
     locale: `ja_JP`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: process.env.GATSBY_WORDPRESS_BASE_URL,
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
