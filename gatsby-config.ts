@@ -43,6 +43,7 @@ const config: GatsbyConfig = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-typegen`,
   ],
 }
 
