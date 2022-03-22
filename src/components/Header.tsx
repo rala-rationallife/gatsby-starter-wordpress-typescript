@@ -105,7 +105,7 @@ export const Header: React.VFC = () => {
             </Link>
           </li>
           <li>
-            <Link to={`/`}>
+            <Link to={`/blog/information-exchange/`}>
               <FontAwesomeIcon icon={faEnvelope} />
               お問い合わせ
             </Link>

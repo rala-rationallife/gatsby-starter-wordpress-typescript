@@ -12143,6 +12143,20 @@ type ImageSharpSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type PostQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type PostQuery = { readonly wpPost: Maybe<(
+    Pick<WpPost, 'title' | 'excerpt' | 'content' | 'date' | 'modified'>
+    & { dateJP: WpPost['date'], modifiedJP: WpPost['modified'] }
+    & { readonly featuredImage: Maybe<{ readonly node: Maybe<{ readonly localFile: Maybe<(
+          Pick<File, 'url'>
+          & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
+        )>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }> }>, readonly categories: Maybe<{ readonly nodes: Maybe<ReadonlyArray<Maybe<Pick<WpCategory, 'slug' | 'name' | 'id'>>>> }> }
+  )> };
+
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -12159,12 +12173,12 @@ type GatsbyNodeQuery = { readonly wp: Maybe<{ readonly readingSettings: Maybe<Pi
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'lang' | 'locale'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title' | 'description' | 'language'>> }> };
+type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
 
 type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_2_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
+type Unnamed_2_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'lang' | 'locale'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title' | 'description' | 'language'>> }> };
 
 type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 

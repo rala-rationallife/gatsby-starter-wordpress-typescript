@@ -1,6 +1,52 @@
 import type { GatsbyNode } from "gatsby"
 import path from "path"
 
+type GatsbyNodeType = {
+  wp: {
+    readingSettings: {
+      postsPerPage: number
+    }
+  }
+  allWpPage: {
+    edges: ReadonlyArray<{
+      node: {
+        id: string
+        slug: string
+      }
+    }>
+  }
+  allWpPost: {
+    edges: ReadonlyArray<{
+      node: {
+        id: string
+        slug: string
+      }
+      previous: {
+        title: string
+        slug: string
+      }
+      next: {
+        title: string
+        slug: string
+      }
+    }>
+  }
+  allWpCategory: {
+    edges: ReadonlyArray<{
+      node: {
+        id: string
+        slug: string
+        name: string
+        posts: {
+          nodes: ReadonlyArray<{
+            title: string
+          }>
+        }
+      }
+    }>
+  }
+}
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
@@ -15,7 +61,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     isPermanent: true,
   })
 
-  const result = await graphql<GatsbyTypes.GatsbyNodeQuery>(`
+  const result = await graphql<GatsbyNodeType>(`
     query GatsbyNode {
       wp {
         readingSettings {
@@ -90,7 +136,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     })
   })
 
-  const postsPerPage = result.data?.wp?.readingSettings?.postsPerPage || 6
+  const postsPerPage = result.data?.wp.readingSettings.postsPerPage || 6
   const postsLength = result.data?.allWpPost.edges.length
 
   if (!postsLength) {
@@ -115,14 +161,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
   })
 
   result.data?.allWpCategory.edges.forEach(({ node }) => {
-    const catPostsPerPage = result.data?.wp?.readingSettings?.postsPerPage || 6
-    const catPostsLength = node.posts?.nodes?.length
+    // const catPostsPerPage = result.data?.wp.readingSettings.postsPerPage || 6
+    const catPostsLength = node.posts.nodes.length
 
     if (!catPostsLength) {
       throw new Error("There is no file match gatsby-astronaut")
     }
 
-    const catPages = Math.ceil(catPostsLength / catPostsPerPage)
+    const catPages = Math.ceil(catPostsLength / postsPerPage)
 
     Array.from({ length: catPages }).forEach((_, i) => {
       createPage({
@@ -136,8 +182,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
           catName: node.name,
           catSlug: node.slug,
           pages: catPages,
-          skip: catPostsPerPage * i,
-          limit: catPostsPerPage,
+          skip: postsPerPage * i,
+          limit: postsPerPage,
           currentPage: i + 1,
           isFirst: i + 1 === 1,
           isLast: i + 1 === catPages,

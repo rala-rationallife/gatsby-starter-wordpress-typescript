@@ -8,8 +8,8 @@ type SeoProps = {
   pagepath?: string
   pageimg?: string
   blogimg?: string
-  pageimgw?: string
-  pageimgh?: string
+  pageimgw?: any
+  pageimgh?: any
   publishDate?: string
   updateDate?: string
 }

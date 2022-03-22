@@ -81,12 +81,15 @@ const Reset = css`
   }
 
   p {
-    font-size: var(--f4);
+    font-size: var(--f5);
     line-height: 1.8;
+
+    @media (min-width: 768px) {
+      font-size: var(--f4);
+    }
   }
 
   ul {
-    font-size: var(--f4);
     line-height: 1.8;
   }
 `
