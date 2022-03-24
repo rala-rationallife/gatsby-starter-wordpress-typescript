@@ -41,10 +41,6 @@ const Reset = css`
     vertical-align: bottom;
   }
 
-  iframe {
-    width: 100%;
-  }
-
   .sr-only {
     border: 0;
     clip: rect(0 0 0 0);
@@ -118,6 +114,12 @@ const Variables = css`
 `
 
 const ForWordPress = css`
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+  }
+
   .alignleft {
     float: left;
     margin-inline: 0 1em;

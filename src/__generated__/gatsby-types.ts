@@ -12173,17 +12173,31 @@ type GatsbyNodeQuery = { readonly wp: Maybe<{ readonly readingSettings: Maybe<Pi
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
+type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'lang' | 'locale'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title' | 'description' | 'language'>> }> };
 
 type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_2_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'lang' | 'locale'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title' | 'description' | 'language'>> }> };
+type Unnamed_2_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
 
 type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_3_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
+type Unnamed_3_Query = { readonly wpUser: Maybe<(
+    Pick<WpUser, 'name' | 'description'>
+    & { readonly avatar: Maybe<Pick<WpAvatar, 'url' | 'width' | 'height'>> }
+  )>, readonly allWpPost: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<WpPost, 'id' | 'title' | 'slug'>
+        & { readonly featuredImage: Maybe<{ readonly node: Maybe<(
+            Pick<WpMediaItem, 'title'>
+            & { readonly localFile: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }
+          )> }> }
+      ) }> } };
+
+type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type Unnamed_4_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

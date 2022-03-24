@@ -11,6 +11,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
+import { Sidebar } from "../components/Sidebar"
 
 type WpPostType = {
   readonly wpPost: {
@@ -243,6 +244,7 @@ const Post = ({ data, location, pageContext }: PostTemplateType) => {
               </div>
             </StyledPostNavigation>
           </StyledArticle>
+          <Sidebar />
         </div>
       </Main>
     </Layout>

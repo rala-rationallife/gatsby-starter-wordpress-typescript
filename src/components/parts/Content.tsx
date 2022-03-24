@@ -47,8 +47,13 @@ const StyledContent = styled.div`
     margin: 0;
     padding-block: 30px;
     padding-inline: 45px 30px;
+    font-size: var(--f5);
     border: dashed 1px var(--blue);
     background-color: var(--blueBack);
+
+    @media (min-width: 768px) {
+      font-size: var(--f4);
+    }
   }
 `
 
