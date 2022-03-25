@@ -6,6 +6,7 @@ type SeoProps = {
   pagetitle?: string
   pagedesc?: string
   pagepath?: string
+  pagetype?: string
   pageimg?: string
   blogimg?: string
   pageimgw?: any
@@ -22,6 +23,7 @@ type DataType = {
       siteUrl: string
       lang: string
       locale: string
+      twitter: string
     }
   }
   wp: {
@@ -43,6 +45,7 @@ export const Seo: React.VFC<SeoProps> = props => {
           siteUrl
           lang
           locale
+          twitter
         }
       }
       wp {
@@ -78,6 +81,8 @@ export const Seo: React.VFC<SeoProps> = props => {
   const url = props.pagepath
     ? `${data.site.siteMetadata.siteUrl}${props.pagepath}`
     : data.site.siteMetadata.siteUrl
+
+  const type = props.pagetype ? `${props.pagetype}` : `website`
 
   const imgurl = props.pageimg
     ? `${data.site.siteMetadata.siteUrl}${props.pageimg}`
@@ -119,7 +124,7 @@ export const Seo: React.VFC<SeoProps> = props => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type} />
       <meta property="og:locale" content={data.site.siteMetadata.locale} />
 
       <meta name="thumbnail" content={imgurl} />
@@ -129,6 +134,12 @@ export const Seo: React.VFC<SeoProps> = props => {
       <meta property="og:image:height" content={imgh} />
 
       <meta name="twitter:card" content="summary_large_image" />
+      {data.site.siteMetadata.twitter !== `@exampletwitter123` && (
+        <meta name="twitter:site" content={data.site.siteMetadata.twitter} />
+      )}
+      {data.site.siteMetadata.twitter !== `@exampletwitter123` && (
+        <meta name="twitter:creator" content={data.site.siteMetadata.twitter} />
+      )}
 
       <script type="application/ld+json">
         {JSON.stringify(jsonLdConfigs)}

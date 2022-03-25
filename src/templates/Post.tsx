@@ -177,6 +177,7 @@ const Post = ({ data, location, pageContext }: PostTemplateType) => {
         pagedesc={excerpt
           ?.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "")
           .slice(0, 100)}
+        pagetype={`article`}
         blogimg={featuredImage.node.localFile.url}
         pageimgw={featuredImage.node.mediaDetails.width}
         pageimgh={featuredImage.node.mediaDetails.height}

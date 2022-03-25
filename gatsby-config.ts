@@ -10,6 +10,7 @@ const config: GatsbyConfig = {
     siteUrl: `https://example.com`,
     lang: `ja`,
     locale: `ja_JP`,
+    twitter: `@exampletwitter123`,
   },
   plugins: [
     {

@@ -282,6 +282,7 @@ type SiteSiteMetadata = {
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly lang: Maybe<Scalars['String']>;
   readonly locale: Maybe<Scalars['String']>;
+  readonly twitter: Maybe<Scalars['String']>;
 };
 
 type SiteFunction = Node & {
@@ -4067,6 +4068,7 @@ type SiteSiteMetadataFilterInput = {
   readonly siteUrl: Maybe<StringQueryOperatorInput>;
   readonly lang: Maybe<StringQueryOperatorInput>;
   readonly locale: Maybe<StringQueryOperatorInput>;
+  readonly twitter: Maybe<StringQueryOperatorInput>;
 };
 
 type SiteConnection = {
@@ -4121,6 +4123,7 @@ type SiteFieldsEnum =
   | 'siteMetadata.siteUrl'
   | 'siteMetadata.lang'
   | 'siteMetadata.locale'
+  | 'siteMetadata.twitter'
   | 'port'
   | 'host'
   | 'polyfill'
@@ -12143,58 +12146,10 @@ type ImageSharpSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+type staticUsersshoyagatsbygatsbyStarterWordpressTypescriptsrccomponentsFooterTsx1988276219QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
-
-type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_2_Query = { readonly wpUser: Maybe<(
-    Pick<WpUser, 'name' | 'description'>
-    & { readonly avatar: Maybe<Pick<WpAvatar, 'url' | 'width' | 'height'>> }
-  )>, readonly allWpPost: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<WpPost, 'id' | 'title' | 'slug'>
-        & { readonly featuredImage: Maybe<{ readonly node: Maybe<(
-            Pick<WpMediaItem, 'title'>
-            & { readonly localFile: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }
-          )> }> }
-      ) }> } };
-
-type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_3_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'lang' | 'locale'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title' | 'description' | 'language'>> }> };
-
-type PostQueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-type PostQuery = { readonly wpPost: Maybe<(
-    Pick<WpPost, 'title' | 'excerpt' | 'content' | 'date' | 'modified'>
-    & { dateJP: WpPost['date'], modifiedJP: WpPost['modified'] }
-    & { readonly featuredImage: Maybe<{ readonly node: Maybe<{ readonly localFile: Maybe<(
-          Pick<File, 'url'>
-          & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
-        )>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }> }>, readonly categories: Maybe<{ readonly nodes: Maybe<ReadonlyArray<Maybe<Pick<WpCategory, 'slug' | 'name' | 'id'>>>> }> }
-  )> };
-
-type pageUsersshoyagatsbygatsbyStarterWordpressTypescriptsrctemplatesPostListTsx96343734QueryVariables = Exact<{
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-}>;
-
-
-type pageUsersshoyagatsbygatsbyStarterWordpressTypescriptsrctemplatesPostListTsx96343734Query = { readonly allWpPost: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<WpPost, 'id' | 'slug' | 'date' | 'modified' | 'title' | 'excerpt'>
-        & { dateJP: WpPost['date'], modifiedJP: WpPost['modified'] }
-        & { readonly featuredImage: Maybe<{ readonly node: Maybe<(
-            Pick<WpMediaItem, 'title'>
-            & { readonly localFile: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }
-          )> }>, readonly categories: Maybe<{ readonly nodes: Maybe<ReadonlyArray<Maybe<Pick<WpCategory, 'id' | 'slug' | 'name'>>>> }> }
-      ) }> } };
+type staticUsersshoyagatsbygatsbyStarterWordpressTypescriptsrccomponentsFooterTsx1988276219Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
 
 type GatsbyNodeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -12203,6 +12158,11 @@ type GatsbyNodeQuery = { readonly wp: Maybe<{ readonly readingSettings: Maybe<Pi
         Pick<WpCategory, 'id' | 'slug' | 'name'>
         & { readonly posts: Maybe<{ readonly nodes: Maybe<ReadonlyArray<Maybe<Pick<WpPost, 'title'>>>> }> }
       ) }> } };
+
+type staticUsersshoyagatsbygatsbyStarterWordpressTypescriptsrccomponentsSeoTsx2051248070QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type staticUsersshoyagatsbygatsbyStarterWordpressTypescriptsrccomponentsSeoTsx2051248070Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'lang' | 'locale' | 'twitter'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title' | 'description' | 'language'>> }> };
 
 type pageUsersshoyagatsbygatsbyStarterWordpressTypescriptsrctemplatesCatListTsx3487725222QueryVariables = Exact<{
   skip: Scalars['Int'];
@@ -12219,6 +12179,54 @@ type pageUsersshoyagatsbygatsbyStarterWordpressTypescriptsrctemplatesCatListTsx3
             & { readonly localFile: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }
           )> }>, readonly categories: Maybe<{ readonly nodes: Maybe<ReadonlyArray<Maybe<Pick<WpCategory, 'id' | 'slug' | 'name'>>>> }> }
       ) }> } };
+
+type pageUsersshoyagatsbygatsbyStarterWordpressTypescriptsrctemplatesPostListTsx96343734QueryVariables = Exact<{
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+}>;
+
+
+type pageUsersshoyagatsbygatsbyStarterWordpressTypescriptsrctemplatesPostListTsx96343734Query = { readonly allWpPost: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<WpPost, 'id' | 'slug' | 'date' | 'modified' | 'title' | 'excerpt'>
+        & { dateJP: WpPost['date'], modifiedJP: WpPost['modified'] }
+        & { readonly featuredImage: Maybe<{ readonly node: Maybe<(
+            Pick<WpMediaItem, 'title'>
+            & { readonly localFile: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }
+          )> }>, readonly categories: Maybe<{ readonly nodes: Maybe<ReadonlyArray<Maybe<Pick<WpCategory, 'id' | 'slug' | 'name'>>>> }> }
+      ) }> } };
+
+type staticUsersshoyagatsbygatsbyStarterWordpressTypescriptsrccomponentsHeaderTsx1988276219QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type staticUsersshoyagatsbygatsbyStarterWordpressTypescriptsrccomponentsHeaderTsx1988276219Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
+
+type staticUsersshoyagatsbygatsbyStarterWordpressTypescriptsrccomponentsSidebarTsx1661796991QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type staticUsersshoyagatsbygatsbyStarterWordpressTypescriptsrccomponentsSidebarTsx1661796991Query = { readonly wpUser: Maybe<(
+    Pick<WpUser, 'name' | 'description'>
+    & { readonly avatar: Maybe<Pick<WpAvatar, 'url' | 'width' | 'height'>> }
+  )>, readonly allWpPost: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<WpPost, 'id' | 'title' | 'slug'>
+        & { readonly featuredImage: Maybe<{ readonly node: Maybe<(
+            Pick<WpMediaItem, 'title'>
+            & { readonly localFile: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }
+          )> }> }
+      ) }> } };
+
+type PostQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type PostQuery = { readonly wpPost: Maybe<(
+    Pick<WpPost, 'title' | 'excerpt' | 'content' | 'date' | 'modified'>
+    & { dateJP: WpPost['date'], modifiedJP: WpPost['modified'] }
+    & { readonly featuredImage: Maybe<{ readonly node: Maybe<{ readonly localFile: Maybe<(
+          Pick<File, 'url'>
+          & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
+        )>, readonly mediaDetails: Maybe<Pick<WpMediaDetails, 'width' | 'height'>> }> }>, readonly categories: Maybe<{ readonly nodes: Maybe<ReadonlyArray<Maybe<Pick<WpCategory, 'slug' | 'name' | 'id'>>>> }> }
+  )> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -12245,11 +12253,6 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_4_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly wp: Maybe<{ readonly generalSettings: Maybe<Pick<WpGeneralSettings, 'title'>> }> };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
