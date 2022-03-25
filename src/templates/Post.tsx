@@ -68,7 +68,7 @@ const StyledArticle = styled.article`
   padding-block: 30px;
 
   @media (min-width: 768px) {
-    grid-column: 1 / 9 !important;
+    grid-column: 1 / span 8 !important;
   }
 
   & .postHead {

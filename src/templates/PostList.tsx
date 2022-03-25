@@ -61,7 +61,7 @@ const StyledPostList = styled.div`
   row-gap: 30px;
 
   @media (min-width: 768px) {
-    grid-column: 1 / 9 !important;
+    grid-column: 1 / span 8 !important;
   }
 
   & .articleLink {
