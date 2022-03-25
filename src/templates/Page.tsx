@@ -119,8 +119,7 @@ const Page = ({ data, location }: PageTemplateType) => {
               {featuredImage ? (
                 <GatsbyImage
                   image={
-                    featuredImage?.node.localFile.childImageSharp
-                      .gatsbyImageData
+                    featuredImage.node.localFile.childImageSharp.gatsbyImageData
                   }
                   alt={title}
                   style={{ height: "100%" }}

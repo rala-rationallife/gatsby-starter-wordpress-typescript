@@ -62,7 +62,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   })
 
   const result = await graphql<GatsbyNodeType>(`
-    query GatsbyNode {
+    query {
       wp {
         readingSettings {
           postsPerPage

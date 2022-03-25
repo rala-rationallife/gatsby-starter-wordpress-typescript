@@ -38,6 +38,7 @@ const StyledContent = styled.div`
 
     & a {
       color: var(--blue);
+      text-decoration: underline;
     }
   }
 
