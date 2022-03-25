@@ -12,6 +12,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
 import { Sidebar } from "../components/Sidebar"
+import { DefaultImage } from "../components/parts/DefaultImage"
 
 type WpPostType = {
   readonly wpPost: {
@@ -207,13 +208,17 @@ const Post = ({ data, location, pageContext }: PostTemplateType) => {
             </div>
 
             <figure className="eyecatch">
-              <GatsbyImage
-                image={
-                  featuredImage.node.localFile.childImageSharp.gatsbyImageData
-                }
-                alt={title}
-                style={{ height: "100%" }}
-              />
+              {featuredImage ? (
+                <GatsbyImage
+                  image={
+                    featuredImage.node.localFile.childImageSharp.gatsbyImageData
+                  }
+                  alt={title}
+                  style={{ height: "100%" }}
+                />
+              ) : (
+                <DefaultImage />
+              )}
             </figure>
 
             <Content content={content} />

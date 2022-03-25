@@ -1,6 +1,6 @@
+import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-import * as React from "react"
 import styled from "styled-components"
 
 type DataType = {
