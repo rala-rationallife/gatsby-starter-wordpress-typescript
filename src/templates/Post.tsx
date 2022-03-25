@@ -63,6 +63,7 @@ type PostTemplateType = PageProps<WpPostType, ContextType>
 
 const StyledArticle = styled.article`
   display: grid;
+  align-self: start;
   row-gap: 30px;
   background-color: var(--white);
   padding-block: 30px;
@@ -260,7 +261,7 @@ const Post = ({ data, location, pageContext }: PostTemplateType) => {
 export default Post
 
 export const query = graphql`
-  query Post($id: String!) {
+  query ($id: String!) {
     wpPost(id: { eq: $id }) {
       title
       excerpt
