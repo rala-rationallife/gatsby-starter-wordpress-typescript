@@ -1,27 +1,42 @@
 <h1 align="center">
-  Gatsby Starter Typescript
+  Gatsby Starter WordPress with Typescript
 </h1>
 
-Typescript で作った Gatsby スターターです。
+Typescript で作った 「Gatsby x WordPress」 スターターです。
 
 ## Gatsby の開発環境を構築するには
 
 以下の記事にて解説しております。
 https://ralacode.com/blog/post/build-gatsbyjs-environment/
 
-## プロジェクトを作る
+## Gatsby と WordPress を連携するには
 
-ターミナルで以下のコマンドを実行します。
+WordPress 側で以下のプラグインが必要です。<br>
+・WP Gatsby<br>
+・WP GraphQL
+
+以下の記事にて詳しく解説しております。
+https://ralacode.com/blog/post/wordpress-gatsbyjs/
+
+## 環境変数を定義する
+
+プロジェクトのルートディレクトリに「.env」という名前のファイルを作ってください。
+
+WordPress サイトの URL に「/graphql」を付け加えます。<br>
+これを環境変数としましょう。
 
 ```shell
-$ gatsby new (プロジェクトの名前) https://github.com/rala-rationallife/gatsby-starter-typescript
+GATSBY_WORDPRESS_BASE_URL=https://(WordPressサイトのドメイン)/graphql
 ```
 
-これにより、Typescript 形式で Gatsby プロジェクトが作られます。
+例として、「.env.example」というファイルもあらかじめ作っております。<br>
+よければ参考にされてください。
 
-## プロジェクトを作ったら
+これにより、Gatsby と WordPress を連携できます。
 
-以下のコマンドを実行してください。
+## パッケージをインストール
+
+ターミナルで以下のコマンドを実行してください。
 
 ```shell
 $ npm install
