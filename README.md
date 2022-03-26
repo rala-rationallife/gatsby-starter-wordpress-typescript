@@ -18,6 +18,14 @@ WordPress 側で以下のプラグインが必要です。<br>
 以下の記事にて詳しく解説しております。
 https://ralacode.com/blog/post/wordpress-gatsbyjs/
 
+## プロジェクトを作る
+
+ターミナルで以下のコマンドを実行します。
+
+```shell
+$ gatsby new (プロジェクトの名前) https://github.com/rala-rationallife/gatsby-starter-typescript
+```
+
 ## 環境変数を定義する
 
 プロジェクトのルートディレクトリに「.env」という名前のファイルを作ってください。

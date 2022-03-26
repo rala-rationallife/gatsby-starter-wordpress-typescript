@@ -104,12 +104,6 @@ export const Header: React.VFC = () => {
               トップ
             </Link>
           </li>
-          <li>
-            <Link to={`/access/`}>
-              <FontAwesomeIcon icon={faEnvelope} />
-              お問い合わせ
-            </Link>
-          </li>
         </ul>
       </StyledNav>
     </>
