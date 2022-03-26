@@ -2,12 +2,18 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
+import { Main } from "../components/parts/Main"
+import { Sidebar } from "../components/Sidebar"
 
 const IndexPage = () => {
   return (
     <Layout>
       <Seo />
-      <h1>Hello, world!</h1>
+      <Main>
+        <div className="myGrid">
+          <Sidebar />
+        </div>
+      </Main>
     </Layout>
   )
 }

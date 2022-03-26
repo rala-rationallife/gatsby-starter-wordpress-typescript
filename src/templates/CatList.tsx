@@ -223,7 +223,7 @@ const CatList = ({ data, location, pageContext }: CatListTemplateType) => {
                 first={pageContext.isFirst}
                 last={pageContext.isLast}
                 current={pageContext.currentPage}
-                preSlug={`category/${pageContext.catSlug}`}
+                preSlug={`${pageContext.catSlug}`}
               />
             )}
           </StyledCatList>

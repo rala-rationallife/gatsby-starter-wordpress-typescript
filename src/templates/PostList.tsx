@@ -166,10 +166,7 @@ const PostList = ({ data, location, pageContext }: PostListTemplateType) => {
                   <ul className="cat">
                     {node.categories.nodes.map(cat => (
                       <li key={cat?.id}>
-                        <Link
-                          to={`/category/${cat?.slug}/`}
-                          className="catLink"
-                        >
+                        <Link to={`/${cat?.slug}/`} className="catLink">
                           {cat?.name}
                         </Link>
                       </li>

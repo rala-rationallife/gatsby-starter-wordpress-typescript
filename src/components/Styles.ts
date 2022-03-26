@@ -161,6 +161,30 @@ const ForWordPress = css`
     &[data-align="wide"] {
       max-width: calc(var(--maxWidth) + 300px);
     }
+
+    &-columns {
+      display: grid;
+      row-gap: 30px;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        column-gap: 10px;
+      }
+    }
+
+    &-image {
+      display: grid;
+      row-gap: 10px;
+
+      & figure {
+        display: grid;
+        row-gap: 10px;
+      }
+
+      & figcaption {
+        justify-self: center;
+      }
+    }
   }
 
   /* https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/ */

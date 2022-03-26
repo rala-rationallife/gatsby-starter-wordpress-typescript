@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 export const DefaultImage: React.VFC = () => {
   return (
     <StaticImage
-      src={`../../images/ralacode_thumb.png`}
+      src={`../../images/default_image.jpg`}
       alt=""
       layout={`fullWidth`}
       style={{ height: "100%" }}

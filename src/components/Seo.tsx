@@ -86,10 +86,10 @@ export const Seo: React.VFC<SeoProps> = props => {
 
   const imgurl = props.pageimg
     ? `${data.site.siteMetadata.siteUrl}${props.pageimg}`
-    : props.blogimg || `${data.site.siteMetadata.siteUrl}/ralacode_thumb.png`
+    : props.blogimg || `${data.site.siteMetadata.siteUrl}/default_image.jpg`
 
-  const imgw = props.pageimgw || `1280`
-  const imgh = props.pageimgh || `640`
+  const imgw = props.pageimgw || `1920`
+  const imgh = props.pageimgh || `1280`
 
   const publishDate = props.publishDate
     ? `${props.publishDate}`

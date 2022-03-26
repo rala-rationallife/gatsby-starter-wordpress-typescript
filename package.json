@@ -1,11 +1,13 @@
 {
-  "name": "gatsby-starter-typescript",
+  "name": "gatsby-starter-wordpress-typescript",
   "version": "1.0.0",
   "private": true,
-  "description": "Typescriptで作ったGatsbyスターターです。",
+  "description": "GatsbyとWordPressを連携させるためのスターターです。構築にはTypescriptを使っています。",
   "author": "Rala",
   "keywords": [
-    "gatsby"
+    "Gatsby",
+    "WordPress",
+    "Typescript"
   ],
   "scripts": {
     "develop": "gatsby develop",
@@ -46,5 +48,9 @@
     "@types/styled-components": "^5.1.24",
     "prettier": "^2.6.1",
     "typescript": "^4.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rala-rationallife/gatsby-starter-wordpress-typescript"
   }
 }

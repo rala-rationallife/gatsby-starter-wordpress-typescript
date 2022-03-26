@@ -161,7 +161,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   })
 
   result.data?.allWpCategory.edges.forEach(({ node }) => {
-    // const catPostsPerPage = result.data?.wp.readingSettings.postsPerPage || 6
     const catPostsLength = node.posts.nodes.length
 
     if (!catPostsLength) {
@@ -172,10 +171,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     Array.from({ length: catPages }).forEach((_, i) => {
       createPage({
-        path:
-          i === 0
-            ? `/category/${node.slug}/`
-            : `/category/${node.slug}/${i + 1}/`,
+        path: i === 0 ? `/${node.slug}/` : `/${node.slug}/${i + 1}/`,
         component: path.resolve(`src/templates/CatList.tsx`),
         context: {
           catId: node.id,
