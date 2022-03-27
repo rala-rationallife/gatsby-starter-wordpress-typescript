@@ -8,6 +8,7 @@ import styled from "styled-components"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { DefaultImage } from "../components/parts/DefaultImage"
 import { Pagination } from "../components/parts/Pagination"
+import { ArticleHead } from "../components/parts/ArticleHead"
 
 type AllWpPostType = {
   allWpPost: {
@@ -82,16 +83,13 @@ const StyledPostList = styled.div`
 
     & .title {
       justify-self: center;
+      font-size: var(--f3);
+      margin: 0;
+      padding: 0;
+      text-align: center;
 
-      & h1 {
-        font-size: var(--f3);
-        margin: 0;
-        padding: 0;
-        text-align: center;
-
-        @media (min-width: 768px) {
-          font-size: var(--f2);
-        }
+      @media (min-width: 768px) {
+        font-size: var(--f2);
       }
     }
 
@@ -151,28 +149,15 @@ const PostList = ({ data, location, pageContext }: PostListTemplateType) => {
           <StyledPostList>
             {data.allWpPost.edges.map(({ node }) => (
               <article key={node.id} className="articleLink">
-                <div className="postHead">
-                  <div className="date">
-                    <time dateTime={node.date}>{node.dateJP}</time>
-                    {node.dateJP !== node.modifiedJP && (
-                      <time
-                        dateTime={node.modified}
-                      >{`（更新日: ${node.modifiedJP}）`}</time>
-                    )}
-                  </div>
-                  <Link to={`/blog/${node.slug}/`} className="title">
-                    <h1>{node.title}</h1>
-                  </Link>
-                  <ul className="cat">
-                    {node.categories.nodes.map(cat => (
-                      <li key={cat?.id}>
-                        <Link to={`/${cat?.slug}/`} className="catLink">
-                          {cat?.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ArticleHead
+                  date={node.date}
+                  dateJP={node.dateJP}
+                  modified={node.modified}
+                  modifiedJP={node.modifiedJP}
+                  title={node.title}
+                  slug={`/blog/${node.slug}/`}
+                  categories={node.categories.nodes}
+                />
                 <Link to={`/blog/${node.slug}/`}>
                   <figure className="eyecatch">
                     {node.featuredImage ? (

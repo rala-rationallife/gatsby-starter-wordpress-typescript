@@ -5,7 +5,7 @@ import { Seo } from "../components/Seo"
 import { Main } from "../components/parts/Main"
 import { Sidebar } from "../components/Sidebar"
 
-const IndexPage = () => {
+const IndexPage: React.VFC = () => {
   return (
     <Layout>
       <Seo />
@@ -21,7 +21,7 @@ const IndexPage = () => {
 export default IndexPage
 
 export const query = graphql`
-  query GatsbyNode {
+  query {
     wp {
       readingSettings {
         postsPerPage

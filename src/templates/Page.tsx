@@ -8,6 +8,7 @@ import { Sidebar } from "../components/Sidebar"
 import styled from "styled-components"
 import { DefaultImage } from "../components/parts/DefaultImage"
 import { Content } from "../components/parts/Content"
+import { ArticleHead } from "../components/parts/ArticleHead"
 
 type WpPageType = {
   readonly wpPage: {
@@ -103,7 +104,14 @@ const Page = ({ data, location }: PageTemplateType) => {
       <Main>
         <div className="myGrid">
           <StyledArticle>
-            <div className="postHead">
+            <ArticleHead
+              date={date}
+              dateJP={dateJP}
+              modified={modified}
+              modifiedJP={modifiedJP}
+              title={title}
+            />
+            {/* <div className="postHead">
               <div className="date">
                 <time dateTime={date}>{dateJP}</time>
                 {dateJP !== modifiedJP && (
@@ -113,7 +121,7 @@ const Page = ({ data, location }: PageTemplateType) => {
                 )}
               </div>
               <h1 className="title">{title}</h1>
-            </div>
+            </div> */}
 
             <figure className="eyecatch">
               {featuredImage ? (

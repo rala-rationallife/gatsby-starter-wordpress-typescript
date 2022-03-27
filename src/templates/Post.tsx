@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { Sidebar } from "../components/Sidebar"
 import { DefaultImage } from "../components/parts/DefaultImage"
+import { ArticleHead } from "../components/parts/ArticleHead"
 
 type WpPostType = {
   readonly wpPost: {
@@ -188,26 +189,14 @@ const Post = ({ data, location, pageContext }: PostTemplateType) => {
       <Main>
         <div className="myGrid">
           <StyledArticle>
-            <div className="postHead">
-              <div className="date">
-                <time dateTime={date}>{dateJP}</time>
-                {dateJP !== modifiedJP && (
-                  <time
-                    dateTime={data.wpPost?.modified}
-                  >{`（更新日: ${modifiedJP}）`}</time>
-                )}
-              </div>
-              <h1 className="title">{title}</h1>
-              <ul className="cat">
-                {categories.nodes.map(cat => (
-                  <li key={cat?.id}>
-                    <Link to={`/${cat?.slug}/`} className="catLink">
-                      {cat?.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ArticleHead
+              date={date}
+              dateJP={dateJP}
+              modified={modified}
+              modifiedJP={modifiedJP}
+              title={title}
+              categories={categories.nodes}
+            />
 
             <figure className="eyecatch">
               {featuredImage ? (

@@ -60,7 +60,7 @@ const StyledArticle = styled.article`
   }
 `
 
-const NotFoundPage = () => {
+const NotFoundPage: React.VFC = () => {
   return (
     <Layout>
       <Seo />
