@@ -5,10 +5,10 @@ import { Seo } from "../components/Seo"
 import { Main } from "../components/parts/Main"
 import { Sidebar } from "../components/Sidebar"
 import styled from "styled-components"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-import { DefaultImage } from "../components/parts/DefaultImage"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import { Pagination } from "../components/parts/Pagination"
 import { ArticleHead } from "../components/parts/ArticleHead"
+import { Eyecatch } from "../components/parts/Eyecatch"
 
 type AllWpPostType = {
   allWpPost: {
@@ -160,18 +160,10 @@ const PostList = ({ data, location, pageContext }: PostListTemplateType) => {
                 />
                 <Link to={`/blog/${node.slug}/`}>
                   <figure className="eyecatch">
-                    {node.featuredImage ? (
-                      <GatsbyImage
-                        image={
-                          node.featuredImage.node.localFile.childImageSharp
-                            .gatsbyImageData
-                        }
-                        alt={node.title}
-                        style={{ height: "100%" }}
-                      />
-                    ) : (
-                      <DefaultImage />
-                    )}
+                    <Eyecatch
+                      featuredImage={node.featuredImage}
+                      alt={node.title}
+                    />
                   </figure>
                 </Link>
                 <div

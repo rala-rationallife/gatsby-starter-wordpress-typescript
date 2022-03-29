@@ -1,14 +1,14 @@
 import * as React from "react"
-import { graphql, Link, PageProps } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { Main } from "../components/parts/Main"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import { Sidebar } from "../components/Sidebar"
 import styled from "styled-components"
-import { DefaultImage } from "../components/parts/DefaultImage"
 import { Content } from "../components/parts/Content"
 import { ArticleHead } from "../components/parts/ArticleHead"
+import { Eyecatch } from "../components/parts/Eyecatch"
 
 type WpPageType = {
   readonly wpPage: {
@@ -113,17 +113,7 @@ const Page = ({ data, location }: PageTemplateType) => {
             />
 
             <figure className="eyecatch">
-              {featuredImage ? (
-                <GatsbyImage
-                  image={
-                    featuredImage.node.localFile.childImageSharp.gatsbyImageData
-                  }
-                  alt={title}
-                  style={{ height: "100%" }}
-                />
-              ) : (
-                <DefaultImage />
-              )}
+              <Eyecatch featuredImage={featuredImage} alt={title} />
             </figure>
 
             <Content content={content} />

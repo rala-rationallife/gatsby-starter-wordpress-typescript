@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { Main } from "../components/parts/Main"
 import styled from "styled-components"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import { Content } from "../components/parts/Content"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -12,8 +12,8 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
 import { Sidebar } from "../components/Sidebar"
-import { DefaultImage } from "../components/parts/DefaultImage"
 import { ArticleHead } from "../components/parts/ArticleHead"
+import { Eyecatch } from "../components/parts/Eyecatch"
 
 type WpPostType = {
   readonly wpPost: {
@@ -199,17 +199,7 @@ const Post = ({ data, location, pageContext }: PostTemplateType) => {
             />
 
             <figure className="eyecatch">
-              {featuredImage ? (
-                <GatsbyImage
-                  image={
-                    featuredImage.node.localFile.childImageSharp.gatsbyImageData
-                  }
-                  alt={title}
-                  style={{ height: "100%" }}
-                />
-              ) : (
-                <DefaultImage />
-              )}
+              <Eyecatch featuredImage={featuredImage} alt={title} />
             </figure>
 
             <Content content={content} />

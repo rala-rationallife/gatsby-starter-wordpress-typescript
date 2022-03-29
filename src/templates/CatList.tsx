@@ -4,11 +4,11 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { Main } from "../components/parts/Main"
 import { Sidebar } from "../components/Sidebar"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { DefaultImage } from "../components/parts/DefaultImage"
 import { Pagination } from "../components/parts/Pagination"
 import { ArticleHead } from "../components/parts/ArticleHead"
+import { Eyecatch } from "../components/parts/Eyecatch"
 
 type AllWpPostType = {
   allWpPost: {
@@ -175,7 +175,11 @@ const CatList = ({ data, location, pageContext }: CatListTemplateType) => {
                 />
                 <Link to={`/blog/${node.slug}/`}>
                   <figure className="eyecatch">
-                    {node.featuredImage ? (
+                    <Eyecatch
+                      featuredImage={node.featuredImage}
+                      alt={node.title}
+                    />
+                    {/* {node.featuredImage ? (
                       <GatsbyImage
                         image={
                           node.featuredImage.node.localFile.childImageSharp
@@ -186,7 +190,7 @@ const CatList = ({ data, location, pageContext }: CatListTemplateType) => {
                       />
                     ) : (
                       <DefaultImage />
-                    )}
+                    )} */}
                   </figure>
                 </Link>
                 <div

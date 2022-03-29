@@ -2,7 +2,7 @@ import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Helmet } from "react-helmet"
 
-type SeoProps = {
+type Props = {
   pagetitle?: string
   pagedesc?: string
   pagepath?: string
@@ -35,8 +35,8 @@ type DataType = {
   }
 }
 
-export const Seo: React.VFC<SeoProps> = props => {
-  const data: DataType = useStaticQuery(graphql`
+export const Seo: React.VFC<Props> = props => {
+  const data = useStaticQuery<DataType>(graphql`
     query {
       site {
         siteMetadata {
@@ -107,8 +107,8 @@ export const Seo: React.VFC<SeoProps> = props => {
     url: url,
     author: {
       "@type": "Person",
-      name: "Rala",
-      url: "https://twitter.com/radiologis2",
+      name: "Author",
+      url: "https://example.com",
     },
   }
 
