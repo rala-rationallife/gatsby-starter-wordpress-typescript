@@ -24,7 +24,7 @@ type WpPostType = {
     dateJP: string
     modified: string
     modifiedJP: string
-    readonly featuredImage: {
+    readonly featuredImage?: {
       readonly node: {
         readonly localFile: {
           readonly childImageSharp: {
@@ -180,9 +180,9 @@ const Post = ({ data, location, pageContext }: PostTemplateType) => {
           ?.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "")
           .slice(0, 100)}
         pagetype={`article`}
-        blogimg={featuredImage.node.localFile.url}
-        pageimgw={featuredImage.node.mediaDetails.width}
-        pageimgh={featuredImage.node.mediaDetails.height}
+        blogimg={featuredImage?.node.localFile.url}
+        pageimgw={featuredImage?.node.mediaDetails.width}
+        pageimgh={featuredImage?.node.mediaDetails.height}
         publishDate={date}
         updateDate={modified}
       />

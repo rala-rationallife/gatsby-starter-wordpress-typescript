@@ -111,17 +111,6 @@ const Page = ({ data, location }: PageTemplateType) => {
               modifiedJP={modifiedJP}
               title={title}
             />
-            {/* <div className="postHead">
-              <div className="date">
-                <time dateTime={date}>{dateJP}</time>
-                {dateJP !== modifiedJP && (
-                  <time
-                    dateTime={data.wpPage?.modified}
-                  >{`（更新日: ${modifiedJP}）`}</time>
-                )}
-              </div>
-              <h1 className="title">{title}</h1>
-            </div> */}
 
             <figure className="eyecatch">
               {featuredImage ? (
