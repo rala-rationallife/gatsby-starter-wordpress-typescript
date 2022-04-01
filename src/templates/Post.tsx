@@ -113,10 +113,6 @@ const StyledArticle = styled.article`
       font-size: var(--f6);
     }
   }
-
-  & .eyecatch {
-    aspect-ratio: 16/9;
-  }
 `
 
 const StyledPostNavigation = styled.nav`
@@ -198,9 +194,7 @@ const Post = ({ data, location, pageContext }: PostTemplateType) => {
               categories={categories.nodes}
             />
 
-            <figure className="eyecatch">
-              <Eyecatch featuredImage={featuredImage} alt={title} />
-            </figure>
+            <Eyecatch featuredImage={featuredImage} alt={title} />
 
             <Content content={content} />
 

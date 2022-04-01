@@ -113,8 +113,10 @@ const StyledPostList = styled.div`
     }
   }
 
-  & .eyecatch {
-    aspect-ratio: 16/9;
+  & .figureLink {
+    &:hover {
+      opacity: 1;
+    }
   }
 
   & .excerpt {
@@ -158,13 +160,11 @@ const PostList = ({ data, location, pageContext }: PostListTemplateType) => {
                   slug={`/blog/${node.slug}/`}
                   categories={node.categories.nodes}
                 />
-                <Link to={`/blog/${node.slug}/`}>
-                  <figure className="eyecatch">
-                    <Eyecatch
-                      featuredImage={node.featuredImage}
-                      alt={node.title}
-                    />
-                  </figure>
+                <Link to={`/blog/${node.slug}/`} className="figureLink">
+                  <Eyecatch
+                    featuredImage={node.featuredImage}
+                    alt={node.title}
+                  />
                 </Link>
                 <div
                   className="excerpt"

@@ -123,8 +123,10 @@ const StyledCatList = styled.div`
     }
   }
 
-  & .eyecatch {
-    aspect-ratio: 16/9;
+  & .figureLink {
+    &:hover {
+      opacity: 1;
+    }
   }
 
   & .excerpt {
@@ -173,25 +175,11 @@ const CatList = ({ data, location, pageContext }: CatListTemplateType) => {
                   slug={`/blog/${node.slug}/`}
                   categories={node.categories.nodes}
                 />
-                <Link to={`/blog/${node.slug}/`}>
-                  <figure className="eyecatch">
-                    <Eyecatch
-                      featuredImage={node.featuredImage}
-                      alt={node.title}
-                    />
-                    {/* {node.featuredImage ? (
-                      <GatsbyImage
-                        image={
-                          node.featuredImage.node.localFile.childImageSharp
-                            .gatsbyImageData
-                        }
-                        alt={node.title}
-                        style={{ height: "100%" }}
-                      />
-                    ) : (
-                      <DefaultImage />
-                    )} */}
-                  </figure>
+                <Link to={`/blog/${node.slug}/`} className="figureLink">
+                  <Eyecatch
+                    featuredImage={node.featuredImage}
+                    alt={node.title}
+                  />
                 </Link>
                 <div
                   className="excerpt"

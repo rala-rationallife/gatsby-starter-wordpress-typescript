@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import styled from "styled-components"
+import { Eyecatch } from "./parts/Eyecatch"
 
 type DataType = {
   wpUser?: {
@@ -170,16 +171,10 @@ export const Sidebar: React.VFC = () => {
             {data.allWpPost.edges.map(({ node }) => (
               <article key={node.id}>
                 <Link to={`/blog/${node.slug}/`} className="postLink">
-                  <figure>
-                    <GatsbyImage
-                      image={
-                        node.featuredImage.node.localFile.childImageSharp
-                          .gatsbyImageData
-                      }
-                      alt={node.title}
-                      style={{ height: "100%" }}
-                    />
-                  </figure>
+                  <Eyecatch
+                    featuredImage={node.featuredImage}
+                    alt={node.title}
+                  />
                   <h3>{node.title}</h3>
                 </Link>
               </article>

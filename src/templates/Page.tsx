@@ -76,10 +76,6 @@ const StyledArticle = styled.article`
       }
     }
   }
-
-  & .eyecatch {
-    aspect-ratio: 16/9;
-  }
 `
 
 const Page = ({ data, location }: PageTemplateType) => {
@@ -112,9 +108,7 @@ const Page = ({ data, location }: PageTemplateType) => {
               title={title}
             />
 
-            <figure className="eyecatch">
-              <Eyecatch featuredImage={featuredImage} alt={title} />
-            </figure>
+            <Eyecatch featuredImage={featuredImage} alt={title} />
 
             <Content content={content} />
           </StyledArticle>
