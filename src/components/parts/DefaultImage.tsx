@@ -7,7 +7,8 @@ export const DefaultImage: React.VFC = () => {
       src={`../../images/default_image.jpg`}
       alt=""
       layout={`fullWidth`}
-      style={{ height: "100%" }}
+      as={`figure`}
+      style={{ aspectRatio: "16/9" }}
     />
   )
 }
